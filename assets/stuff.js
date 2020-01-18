@@ -2,20 +2,21 @@
 // ================================================================
 
 // Counter function -- Cutting out the 'middle-man' and 'shortening' the code.
-module.exports.counter = function (arr) {
+var counter = function (arr) {
     return 'There are ' + arr.length + ' elements in this array';
 };
 
 // Adder function using template strings 'eliminates need for a lot of concatenation'
-module.exports.adder = function (a, b) {
+var adder = function (a, b) {
     return `The sum of the 2 numbers is ${a+b}`;
 };
 
 // Pi function
-module.exports.pi = 3.142;
+var pi = 3.142;
 
-// Explicitly state which parts of this module we want other files to have access to that require this module.
-// module.exports is an empty object, add more into the object by using the syntax below.
-// module.exports.counter = counter;
-//  module.exports.adder = adder;
-//  module.exports.pi = pi;
+// Object literal notation make module.exports an object. Put different properties or methods in the object.
+module.exports = {
+    counter: counter,
+    adder: adder,
+    pi: pi
+};
