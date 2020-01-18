@@ -1,12 +1,8 @@
-// Call function, taking a function as a parameter. I believe this is a callback.
-function callFunction(fun){
-    fun();
-}
+// Use the require function which is on the global object in node.js so we can use it wherever we are.
+// ==================================================================================================
 
-// Function expression. Assigned a variable named 'sayBye' to an anonymous function and then called it by typing out the variable
-var sayBye = function(){
-    console.log('Bye');
-};
+// Using require to 'attach' count.js to app.js, we do this by setting require equal to a variable that's equal to whatever's returned to us.
+var counter = require('./count')
 
-// Call the callFunction and pass in the sayBye function expression
-callFunction(sayBye);
+// Console.log the calling of the function to see it in the terminal
+console.log(counter(['Steve', 'Kelly', 'Humphrey']));

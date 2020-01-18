@@ -6,5 +6,5 @@ var counter = function(arr){
     return 'There are ' + arr.length + ' elements in this array';
 };
 
-// Console.log the calling of the function to see it in the terminal
-console.log(counter(['Steve', 'Kelly', 'Humphrey']));
+// Explicitly state which parts of this module we want other files to have access to that require this module.
+module.exports = counter;
