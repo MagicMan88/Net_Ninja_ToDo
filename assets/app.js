@@ -1,25 +1,9 @@
-// Use the require function which is on the global object in node.js so we can use it wherever we are.
-// ==================================================================================================
-// Using the events module and the util module
-var events = require('events');
-var util = require('util');
+// Require in necessary dependencies in this case we're using fs 'reading and writing files'
+var fs = require('fs');
 
-var Person = function(name) {
-    this.name = name;
-};
+// Read a file using fs synchronous
+var readMe = fs.readFileSync('readMe.txt', 'utf8');
 
-util.inherits(Person, events.EventEmitter);
 
-var james = new Person('james');
-var mary = new Person('mary');
-var ryu = new Person('ryu');
-var people = [james, mary, ryu];
-
-people.forEach(function(person){
-    person.on('speak', function(mssg){
-        console.log(person.name + ' said: ' + mssg);
-    });
-});
-
-james.emit('speak', 'hey, dudes');
-ryu.emit('speak', 'I want a curry');
+// Writing a new file using fs synchronous
+fs.writeFileSync('writeMe.txt', readMe);
